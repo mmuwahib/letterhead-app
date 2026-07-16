@@ -1,0 +1,24 @@
+name: Upload Repository as Zip
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  upload-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create zip archive
+        run: git archive --format=zip HEAD > letterhead-app.zip
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: letterhead-app
+          path: letterhead-app.zip
+          retention-days: 7
