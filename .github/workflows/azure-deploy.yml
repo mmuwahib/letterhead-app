@@ -20,7 +20,7 @@ jobs:
         run: unzip -q letterhead-creator-main.zip -d app-source
       - name: Install dependencies
         working-directory: app-source/letterhead-creator-main
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Build application
         working-directory: app-source/letterhead-creator-main
         env:
