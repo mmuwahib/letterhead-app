@@ -48,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: production
-      url: https://letterhead-app.azurewebsites.net
+      url: https://letterhead-app-a4cfbge2bqbbawc5.uaenorth-01.azurewebsites.net
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
@@ -62,3 +62,5 @@ jobs:
           app-name: letterhead-app
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
           package: ./dist
+          startup-command: pm2 serve /home/site/wwwroot --no-daemon --spa
+          restart: true
