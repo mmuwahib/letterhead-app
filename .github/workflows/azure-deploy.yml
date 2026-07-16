@@ -13,27 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: letterhead-creator-main/package-lock.json
-
       - name: Extract application
         run: unzip -q letterhead-creator-main.zip -d app-source
-
       - name: Install dependencies
         working-directory: app-source/letterhead-creator-main
         run: npm ci
-
       - name: Build application
         working-directory: app-source/letterhead-creator-main
         env:
           VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: npm run build
-
       - uses: actions/upload-artifact@v4
         with:
           name: web-app
@@ -47,7 +40,6 @@ jobs:
         with:
           name: web-app
           path: dist
-
       - uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ secrets.AZURE_APP_NAME }}
