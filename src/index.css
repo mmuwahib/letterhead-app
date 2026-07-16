@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Selawik — open-source Segoe UI metrics-compatible font (Microsoft, SIL OFL).
+   Used to unify body text in generated PDFs with the letterhead header. */
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawik-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawik-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawik-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Selawik";
+  src: url("/fonts/selawik-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gulf Cryo design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Shared letterhead/body typography stack. */
+    --font-letterhead: "Selawik", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+    --background: 210 25% 98%;
+    --foreground: 215 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 12%;
+
+    /* Cryo Blue */
+    --primary: 212 90% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 212 90% 58%;
+
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 215 35% 12%;
+
+    --muted: 210 25% 95%;
+    --muted-foreground: 215 16% 45%;
+
+    /* Ice Cyan accent */
+    --accent: 190 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 190 75% 92%;
+
+    --destructive: 0 78% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 64% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 35% 12%;
+
+    --info: 212 90% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 212 90% 42%;
+
+    --radius: 0.5rem;
+
+    /* Surface tiers */
+    --surface-1: 0 0% 100%;
+    --surface-2: 210 25% 96%;
+    --surface-3: 210 25% 93%;
+
+    /* Sidebar — deep navy with cyan accent */
+    --sidebar-background: 215 45% 10%;
+    --sidebar-foreground: 210 25% 88%;
+    --sidebar-primary: 190 85% 50%;
+    --sidebar-primary-foreground: 215 45% 10%;
+    --sidebar-accent: 215 35% 18%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 215 30% 20%;
+    --sidebar-ring: 190 85% 50%;
+
+    /* Gradients & shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--surface-1)), hsl(var(--surface-2)));
+    --shadow-sm: 0 1px 2px hsl(215 35% 12% / 0.05);
+    --shadow-md: 0 4px 12px -2px hsl(215 35% 12% / 0.08);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.25);
+  }
+
+  .dark {
+    --background: 222 30% 8%;
+    --foreground: 210 25% 96%;
+
+    --card: 222 25% 11%;
+    --card-foreground: 210 25% 96%;
+
+    --popover: 222 25% 11%;
+    --popover-foreground: 210 25% 96%;
+
+    --primary: 212 90% 58%;
+    --primary-foreground: 222 30% 8%;
+    --primary-glow: 190 85% 60%;
+
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 25% 96%;
+
+    --muted: 217 25% 16%;
+    --muted-foreground: 215 18% 65%;
+
+    --accent: 190 80% 55%;
+    --accent-foreground: 222 30% 8%;
+    --accent-soft: 190 50% 22%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 60% 48%;
+    --success-foreground: 222 30% 8%;
+
+    --warning: 38 92% 56%;
+    --warning-foreground: 222 30% 8%;
+
+    --info: 212 90% 60%;
+    --info-foreground: 222 30% 8%;
+
+    --border: 217 25% 18%;
+    --input: 217 25% 18%;
+    --ring: 212 90% 58%;
+
+    --surface-1: 222 25% 11%;
+    --surface-2: 222 22% 14%;
+    --surface-3: 222 22% 17%;
+
+    --sidebar-background: 222 35% 6%;
+    --sidebar-foreground: 210 25% 88%;
+    --sidebar-primary: 190 85% 55%;
+    --sidebar-primary-foreground: 222 35% 6%;
+    --sidebar-accent: 222 25% 14%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 222 25% 16%;
+    --sidebar-ring: 190 85% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--surface-1)), hsl(var(--surface-2)));
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.4);
+    --shadow-md: 0 4px 12px -2px hsl(0 0% 0% / 0.5);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.45);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
